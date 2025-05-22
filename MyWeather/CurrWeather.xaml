@@ -1,0 +1,56 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyWeather"
+      xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="MyWeather.CurrWeather"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CurrWeather"
+      Background="#e0fbfc">
+
+    <Page.Resources>
+        <DataTemplate x:Key="TooltipTemplate">
+            <StackPanel Orientation="Vertical" Background="White">
+                <TextBlock Text="{Binding Item.XValue, StringFormat='Time: {0:HH:mm}'}"/>
+                <TextBlock Text="{Binding Item.YValue, StringFormat='Value: {0:F2}'}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <syncfusion:SfChart x:Name="chtTemp" Margin="10,10,10,10" Background="#81b29a">
+            <syncfusion:SfChart.PrimaryAxis>
+                <syncfusion:CategoryAxis />
+            </syncfusion:SfChart.PrimaryAxis>
+            <syncfusion:SfChart.SecondaryAxis>
+                <syncfusion:NumericalAxis/>
+            </syncfusion:SfChart.SecondaryAxis>
+        </syncfusion:SfChart>
+
+        <syncfusion:SfChart x:Name="chtHum" Grid.Row="1" Margin="10,10,10,10" Background="#8d99ae">
+            <syncfusion:SfChart.PrimaryAxis>
+                <syncfusion:CategoryAxis />
+            </syncfusion:SfChart.PrimaryAxis>
+            <syncfusion:SfChart.SecondaryAxis>
+                <syncfusion:NumericalAxis/>
+            </syncfusion:SfChart.SecondaryAxis>
+        </syncfusion:SfChart>
+
+        <syncfusion:SfChart x:Name="chtPres"  Grid.Row="2" Margin="10,10,10,10" Background="#f2cc8f">
+            <syncfusion:SfChart.PrimaryAxis>
+                <syncfusion:CategoryAxis Header="Date And Time"/>
+            </syncfusion:SfChart.PrimaryAxis>
+            <syncfusion:SfChart.SecondaryAxis>
+                <syncfusion:NumericalAxis Header="Presure"/>
+            </syncfusion:SfChart.SecondaryAxis>
+        </syncfusion:SfChart>
+    </Grid>
+</Page>
